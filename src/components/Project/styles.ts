@@ -1,12 +1,22 @@
 import styled, { keyframes } from "styled-components";
 import { ThemeColor } from "../../constants";
 
-const appear = keyframes`
-  0% {
+const bounceIn = keyframes`
+  0%{
     opacity: 0;
+    transform: scale(0.3) translate3d(0,0,0);
   }
-  100% {
+  50%{
+    opacity: 0.9;
+    transform: scale(1.1);
+  }
+  80%{
     opacity: 1;
+    transform: scale(0.89);
+  }
+  100%{
+    opacity: 1;
+    transform: scale(1) translate3d(0,0,0);
   }
 `;
 
@@ -14,59 +24,55 @@ export const Container = styled.div<{ position: string | null }>`
   position: relative;
   z-index: 2;
   width: 320px;
-  height: 200px;
-  background: ${ThemeColor.background.gray};
+  min-height: 480px;
+  background: ${ThemeColor.background.dark};
   border-radius: 20px;
   transform: scale(0.98);
+  padding: 10px;
   opacity: 0;
-  box-shadow: 0 0 0 #c4c4c4, 0 0 0 #ffffff;
-  transition: opacity 200ms ease-in-out, transform 600ms ease-in-out,
-    box-shadow 800ms 200ms ease-in-out;
-
-  &:hover {
-    box-shadow: 10px 10px 30px #c4c4c4, -10px -10px 30px #ffffff;
-  }
-
-  & > .link {
-    width: 320px;
-    height: 200px;
-    text-decoration: none;
-  }
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  animation: ${bounceIn} 600ms ease-in-out forwards;
 
   & .card-content {
     width: 320px;
     padding: 20px;
     opacity: 0;
-    animation: ${appear} 600ms ease-in-out forwards;
   }
 
   .image {
     position: relative;
     width: 100%;
-    height: 100%;
+    height: 180px;
     object-fit: cover;
     object-position: ${(props) => (props.position ? props.position : "center")};
-    border-radius: 20px;
-    opacity: 0;
-    transform: scale(1);
-    transition: transform 400ms 1000ms ease-in-out,
-      opacity 1000ms 200ms ease-in-out;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
   }
 
-  .image-overlay {
-    position: absolute;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    width: 320px;
-    height: 200px;
-    border-radius: 20px;
-    background: ${ThemeColor.background.gray};
-    opacity: 0.7;
-    transition: opacity 600ms 800ms ease-in-out;
+  .content {
+    margin: 10px 0 10px 0;
+    padding: 10px;
+    padding-bottom: 80px;
+
+    & > span {
+      text-align: left;
+      color: ${ThemeColor.background.gray};
+    }
+
+    & > div:last-child {
+      margin-top: 10px;
+      color: ${ThemeColor.background.light};
+      font-size: 12px;
+      font-weight: 500;
+      cursor: pointer;
+    }
   }
 
   .btns {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
     display: flex;
   }
 
@@ -86,16 +92,13 @@ export const Container = styled.div<{ position: string | null }>`
     border-radius: 10px;
     background-image: linear-gradient(
       to right,
-      #232526 0%,
-      #414345 51%,
-      #232526 100%
+      rgba(59, 142, 165, 1) 0%,
+      rgba(79, 162, 185, 1) 51%,
+      rgba(59, 142, 165, 1) 100%
     );
     cursor: pointer;
-    opacity: 0;
     text-decoration: none;
-    box-shadow: 0px 0px 0px #c4c4c4, -0px -0px 0px #ffffff;
-    transition: opacity 600ms 1200ms ease-in-out,
-      box-shadow 600ms 1200ms ease-in-out, background-position 150ms ease-in-out;
+    transition: background-position 150ms ease-in-out;
   }
 
   .github {

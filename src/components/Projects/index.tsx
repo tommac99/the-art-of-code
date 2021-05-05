@@ -16,7 +16,7 @@ export const Projects: FC = () => {
         <Carousel
           onChange={(_index, _item) => {}}
           swipeable={true}
-          // infiniteLoop={true}
+          infiniteLoop={true}
           interval={3000}
           showIndicators={false}
           showStatus={false}

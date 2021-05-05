@@ -4,6 +4,7 @@ const colors = {
   light: "rgba(251, 251, 255,1)",
   lightPurple: "rgba(231, 233, 245,1)",
   dark: "rgba(49, 49, 49,1)",
+  darkest: "rgba(29, 29, 29,1)",
   lightBlue: "rgba(79, 162, 185,1)",
   blue: "rgba(59, 142, 165,1)",
   darkBlue: "rgba(39, 122, 145,1)",
@@ -37,6 +38,7 @@ export const ThemeColor = {
       dark: colors.darkBlue,
     },
     dark: colors.dark,
+    darkest: colors.darkest,
   },
   other: {
     // star: colors.gold,

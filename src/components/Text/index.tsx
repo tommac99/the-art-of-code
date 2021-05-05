@@ -5,7 +5,7 @@ import { TextContainer } from "./styles";
 interface ITextProps {
   children: string | ReactChild;
   variant?: "h1" | "h2" | "h3" | "h4" | "body1" | "body2";
-  color?: "primary" | "secondary";
+  color?: "primary" | "secondary" | "contrast";
   weight?: "light" | "normal" | "bold";
   align?: "left" | "center" | "right";
   mt?: number;

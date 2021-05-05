@@ -23,6 +23,9 @@ export const TextContainer = styled.div<ITextStyleProps>`
   margin-left: ${(props: ITextStyleProps) => props.marginLeft}px;
   margin-right: ${(props: ITextStyleProps) => props.marginRight}px;
   text-align: ${(props: ITextStyleProps) => props.textAlign};
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   ${(props) =>
     props.slab ? "font-family: 'Roboto Slab'" : "font-family: 'Roboto'"}
 `;

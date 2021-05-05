@@ -50,7 +50,7 @@ export const AboutPage: FC = () => {
                 variant="h4"
                 weight="normal"
                 slab={true}
-                mb={10}
+                mb={20}
                 align="center"
               >
                 Global Citizen

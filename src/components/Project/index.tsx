@@ -1,17 +1,16 @@
-import { FC, useEffect, useState } from "react";
-// import { useMediaQuery } from "@react-hook/media-query";
-
+import { FC, useState } from "react";
 import { Container } from "./styles";
 import { Text } from "../index";
 import Lottie from "react-lottie";
-import loadingHand from "../../assets/lottie/loadingHand.json";
 import githubWhite from "../../assets/lottie/githubWhite.json";
+// @ts-ignore
+import EllipsisText from "react-ellipsis-text";
 
 interface IProject {
   title: string;
   description: string;
-  link: string | null;
-  image: string | null;
+  link: string;
+  image: string;
   repo: string | null;
   position: string | null;
 }
@@ -19,95 +18,54 @@ interface IProject {
 export const Project: FC<{ item: IProject }> = ({
   item: { title, description, link, image, repo, position },
 }) => {
-  const [hasLoaded, setHasLoaded] = useState(false);
-  // const matches = useMediaQuery("only screen and (max-width: 680px)");
+  const [showFullDescription, setShowFullDescription] = useState(false);
 
-  useEffect(() => {
-    setTimeout(() => {
-      setHasLoaded(true);
-    }, 5000);
-  }, []);
-
-  if (image === null) {
-    return (
-      <Container position={position}>
-        {!hasLoaded ? (
+  return (
+    <Container position={position}>
+      <img src={image} alt={image} className="image" />
+      <div className="content">
+        <Text
+          variant="h4"
+          color="contrast"
+          slab={true}
+          align="center"
+          mb={10}
+          lineHeight={true}
+        >
+          {title}
+        </Text>
+        <EllipsisText
+          text={description}
+          length={showFullDescription ? "1000" : "110"}
+        />
+        <div onClick={() => setShowFullDescription(!showFullDescription)}>
+          {showFullDescription ? "Read less" : "Read more"}
+        </div>
+      </div>
+      <div className="btns">
+        {!!link ? (
+          <a href={link} className="btn-grad demo">
+            <Text color="contrast">Live Demo</Text>
+          </a>
+        ) : (
+          <div className="btn-grad demo disabled">
+            <Text color="contrast">Live Demo</Text>
+          </div>
+        )}
+        <div className={`btn-grad github ${!!repo && "disabled"}`}>
           <Lottie
-            height={200}
-            width={200}
+            height={40}
+            width={40}
             options={{
               autoplay: true,
               loop: true,
-              animationData: loadingHand,
+              animationData: githubWhite,
               rendererSettings: {
                 preserveAspectRatio: "xMidYMid slice",
               },
             }}
           />
-        ) : (
-          <div className="card-content">
-            <Text variant="h3" mb={20}>
-              {title}
-            </Text>
-            <Text
-              variant="body1"
-              slab={false}
-              weight="normal"
-              lineHeight={true}
-            >
-              {description}
-            </Text>
-          </div>
-        )}
-      </Container>
-    );
-  }
-
-  return (
-    <Container position={position}>
-      <div className="image-overlay" />
-      <img src={image} alt={image} className="image" />
-      <div className="btns">
-        {!!link ? (
-          <a href={link} className="btn-grad demo">
-            <Text color="secondary">Live Demo</Text>
-          </a>
-        ) : (
-          <div className="btn-grad demo disabled">
-            <Text color="secondary">Live Demo</Text>
-          </div>
-        )}
-        {!!repo ? (
-          <a href={repo} className="btn-grad github">
-            <Lottie
-              height={40}
-              width={40}
-              options={{
-                autoplay: true,
-                loop: true,
-                animationData: githubWhite,
-                rendererSettings: {
-                  preserveAspectRatio: "xMidYMid slice",
-                },
-              }}
-            />
-          </a>
-        ) : (
-          <div className="btn-grad github disabled">
-            <Lottie
-              height={40}
-              width={40}
-              options={{
-                autoplay: true,
-                loop: true,
-                animationData: githubWhite,
-                rendererSettings: {
-                  preserveAspectRatio: "xMidYMid slice",
-                },
-              }}
-            />
-          </div>
-        )}
+        </div>
       </div>
     </Container>
   );

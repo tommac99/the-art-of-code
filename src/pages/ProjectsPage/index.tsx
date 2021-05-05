@@ -1,5 +1,5 @@
 import { FC, useEffect } from "react";
-import { Container, LoadingScreen, Text } from "../../components";
+import { Container, LoadingScreen, Projects, Text } from "../../components";
 import { Content } from "./styles";
 import { useLoadingState } from "../../components/App/hooks";
 
@@ -19,17 +19,11 @@ export const ProjectsPage: FC = () => {
           <div className="inner">
             <div className="title">
               <Text variant="h2" align="center">
-                Art
-              </Text>
-              <Text variant="h2" align="center">
-                of
-              </Text>
-              <Text variant="h2" align="center">
-                Code
+                Projects
               </Text>
             </div>
             <div className="content">
-              <div className="start">ProjectsPage</div>
+              <Projects />
             </div>
           </div>
         </Container>
