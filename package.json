@@ -39,6 +39,7 @@
     "react-router-transition": "^2.1.0",
     "react-scripts": "4.0.3",
     "react-scroll-parallax": "^2.3.5",
+    "react-text-loop": "^2.3.0",
     "react-transition-group": "^4.4.1",
     "react-waypoint": "^9.0.3",
     "styled-components": "^5.2.3",

@@ -13,7 +13,7 @@ const fadeIn = keyframes`
 
 export const Content = styled.div`
   position: relative;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   overflow: hidden;
   background: #f7f9fe;
@@ -40,7 +40,6 @@ export const Content = styled.div`
 
   .content {
     position: relative;
-    min-width: 340px;
     height: 100%;
     max-height: 280px;
     border-radius: 10px;
@@ -67,7 +66,7 @@ export const Content = styled.div`
       animation: ${fadeIn} 300ms 1600ms ease-in-out forwards;
     }
     & > .text-group:nth-child(5) {
-      margin-top: 10px;
+      margin-top: 20px;
       font-size: 20px;
       color: #313131;
       animation: ${fadeIn} 300ms 2000ms ease-in-out forwards;
@@ -86,6 +85,11 @@ export const Content = styled.div`
           color: rgba(59, 142, 165, 1);
         }
       }
+    }
+
+    .text {
+      width: 320px;
+      text-align: center;
     }
   }
 `;

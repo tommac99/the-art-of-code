@@ -1,8 +1,16 @@
-import { FC, useEffect } from "react";
-import { Container, LoadingScreen, Text } from "../../components";
+import { FC } from "react";
+import { Container, Text } from "../../components";
 import { Content } from "./styles";
-import { useLoadingState } from "../../components/App/hooks";
-import Typewriter from "typewriter-effect";
+import TextLoop from "react-text-loop";
+
+const words = [
+  "Story Teller",
+  "Creative Thinker",
+  "Entrepreneur",
+  "Strategic Planner",
+  "Risk Taker",
+  "Seriously, hire this guy!",
+];
 
 export const AboutPage: FC = () => {
   return (
@@ -65,24 +73,15 @@ export const AboutPage: FC = () => {
               </div>
             </div>
             <div className="text-group">
-              <Typewriter
-                onInit={(typewriter) =>
-                  typewriter
-                    .pauseFor(1600)
-                    .typeString("Story Teller")
-                    .pauseFor(1600)
-                    .deleteAll()
-                    .typeString("Creative Thinker")
-                    .pauseFor(1600)
-                    .deleteAll()
-                    .typeString("Entrepreneur")
-                    .pauseFor(1600)
-                    .deleteAll()
-                    .typeString("Strategic Planner")
-                    .start()
-                }
-                options={{ loop: true }}
-              />
+              <TextLoop noWrap={false} interval={3500}>
+                {words.map((word) => {
+                  return (
+                    <Text variant="h4" weight="bold" className="text">
+                      {word}
+                    </Text>
+                  );
+                })}
+              </TextLoop>
             </div>
             <div className="text-group">
               <a href="https://github.com/tommac99">
