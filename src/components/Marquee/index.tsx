@@ -10,7 +10,13 @@ export const Marquee: FC = () => {
       <FastMarquee gradientWidth={0} speed={10}>
         {icons.map(({ icon, top, right, speed }, index) => {
           return (
-            <Icon top={top} right={right} speed={speed} index={index}>
+            <Icon
+              key={index}
+              top={top}
+              right={right}
+              speed={speed}
+              index={index}
+            >
               {icon}
             </Icon>
           );

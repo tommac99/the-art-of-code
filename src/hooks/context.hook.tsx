@@ -1,5 +1,10 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import { ScrollContext, LoadingContext } from "../context/index";
+import {
+  ScrollContext,
+  LoadingContext,
+  YouTubePlayerContext,
+  SettingsContext,
+} from "../context/index";
 import React, { useContext } from "react";
 
 const useContextFactory = <T extends unknown>(
@@ -24,4 +29,12 @@ export const useScrollContext = useContextFactory(
 export const useLoadingContext = useContextFactory(
   "LoadingContext",
   LoadingContext
+);
+export const useYouTubePlayerContext = useContextFactory(
+  "YouTubePlayerContext",
+  YouTubePlayerContext
+);
+export const useSettingsContext = useContextFactory(
+  "SettingsContext",
+  SettingsContext
 );

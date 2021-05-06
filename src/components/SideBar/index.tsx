@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { FC, useState } from "react";
 import {
   ProSidebar,
   Menu,
@@ -9,34 +9,15 @@ import {
   SidebarHeader,
 } from "react-pro-sidebar";
 import "./overrides.scss";
-import { CampingSVG, MoonSVG } from "../../assets/svg";
 import { ProSiderBarContainer } from "./styles";
 import { Text } from "..";
-import { GetIcons } from "../../services";
 import Lottie from "react-lottie";
 import loadingHand from "../../assets/lottie/loadingHand.json";
 import { Link } from "react-router-dom";
 import { Routes } from "../../constants";
 
-interface Icon {
-  title: string;
-  icon: string;
-  children: Icon[];
-}
-
-export const SideBar = () => {
-  // const [items, setItems] = useState<Icon[] | null>(null);
+export const SideBar: FC = () => {
   const [isCollapsed, setIsCollapsed] = useState(true);
-
-  // useEffect(() => {
-  //   async function getData() {
-  //     const data = await GetIcons();
-  //     console.log("data:", data);
-  //     setItems(data);
-  //   }
-
-  //   getData();
-  // }, []);
 
   const renderMenuItems = () => {
     if (Routes === null) return;
@@ -68,10 +49,11 @@ export const SideBar = () => {
           }
         >
           {icon.title}
-          <Link to={icon.title.toLowerCase()} />
+          <Link to={`/${icon.title.toLowerCase()}`} />
         </MenuItem>
       ) : (
         <SubMenu
+          key={icon.title}
           title={icon.title}
           icon={<i className={icon.icon} style={{ fontSize: 16 }} />}
           onOpenChange={() => {
@@ -86,7 +68,7 @@ export const SideBar = () => {
                 icon={<i className={icon.icon} style={{ fontSize: 16 }} />}
               >
                 {icon.title}
-                <Link to={icon.title.toLowerCase()} />
+                <Link to={`/${icon.title.toLowerCase()}`} />
               </MenuItem>
             );
           })}

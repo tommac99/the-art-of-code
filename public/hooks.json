@@ -1,0 +1,22 @@
+[
+  {
+    "title": "Floating YouTube Player",
+    "icon": "fab fa-youtube",
+    "link": "floating-youtube-player"
+  },
+  {
+    "title": "Settings",
+    "icon": "fas fa-code",
+    "link": "settings"
+  },
+  {
+    "title": "Scroll Indicator",
+    "icon": "fas fa-code",
+    "link": "floating-youtube-player"
+  },
+  {
+    "title": "Basic Hooks",
+    "icon": "fas fa-code",
+    "link": "floating-youtube-player"
+  }
+]

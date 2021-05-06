@@ -1,6 +1,5 @@
 import styled, { keyframes } from "styled-components";
 import { ThemeColor } from "../../constants";
-import { mediaQueries } from "../../utils";
 
 const appear = keyframes`
   0% {

@@ -1,7 +1,6 @@
 import { FC, FormEvent, useState } from "react";
-import { Container, LoadingScreen, Text } from "../../components";
+import { Container, Text } from "../../components";
 import { Content } from "./styles";
-import { useLoadingState } from "../../components/App/hooks";
 import * as emailjs from "emailjs-com";
 
 export const ContactPage: FC = () => {
@@ -9,7 +8,7 @@ export const ContactPage: FC = () => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [sending, setSending] = useState(false);
-  const [error, setError] = useState(true);
+  const [error, setError] = useState(false);
   const [isSent, setIsSent] = useState(false);
 
   const handleClick = (event: FormEvent) => {
@@ -78,6 +77,18 @@ export const ContactPage: FC = () => {
                   placeholder="Message"
                   onChange={(event) => setMessage(event.target.value)}
                 />
+                {error && (
+                  <Text
+                    variant="body1"
+                    color="secondary"
+                    align="center"
+                    mt={10}
+                    mb={20}
+                  >
+                    * Please fill in all the fields
+                  </Text>
+                )}
+
                 <button type="submit" onClick={handleClick}>
                   {sending ? "Sending" : "Send"}
                 </button>

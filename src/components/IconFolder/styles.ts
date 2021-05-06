@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { mediaQueries } from "../../utils";
 
 export const Root = styled.div`
   width: 260px;

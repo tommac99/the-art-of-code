@@ -1,0 +1,23 @@
+[
+  {
+    "title": "Tutorial: Learn how to use CSS Media Queries in less than 5 minutes",
+    "author": "Kevin Powell",
+    "id": "2KL-z9A56SQ",
+    "stack": ["frontend"],
+    "categories": ["css"]
+  },
+  {
+    "title": "Learn React In 30 Minutes",
+    "author": "Web Dev Simplified",
+    "id": "hQAHSlTtcmY",
+    "stack": ["frontend"],
+    "categories": ["css", "js", "react"]
+  },
+  {
+    "title": "10 React Hooks Explained // Plus Build your own from Scratch",
+    "author": "Fireship",
+    "id": "TNhaISOUy6Q",
+    "stack": ["frontend"],
+    "categories": ["js", "react"]
+  }
+]

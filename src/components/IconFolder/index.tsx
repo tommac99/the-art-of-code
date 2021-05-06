@@ -15,6 +15,7 @@ export const IconFolder: FC<IIconFolder> = ({ icons, index }) => {
       {icons.map(({ title, icon }, index) => {
         return (
           <Icon
+            key={index}
             title={title}
             icon={icon}
             index={index}

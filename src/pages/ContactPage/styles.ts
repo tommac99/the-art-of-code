@@ -1,21 +1,6 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import { ThemeColor } from "../../constants";
 import { mediaQueries } from "../../utils";
-
-const tipsy = keyframes`
-  0 {
-    transform: translateX(-50%) translateY(-50%) rotate(0deg);
-  }
-  20% {
-    transform: translateX(-50%) translateY(-50%) rotate(360deg);
-  }
-  40% {
-    transform: translateX(-50%) translateY(-50%) rotate(0deg);
-  }
-  100% {
-    transform: translateX(-50%) translateY(-50%) rotate(0deg);
-  }
-`;
 
 export const Content = styled.div`
   position: relative;

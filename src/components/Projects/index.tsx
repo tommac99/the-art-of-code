@@ -66,9 +66,9 @@ export const Projects: FC = () => {
             </button>
           )}
         >
-          {projects.map((item) => {
+          {projects.map((item, index) => {
             return (
-              <div className="project-slide">
+              <div key={index} className="project-slide">
                 <Project item={item} />
               </div>
             );

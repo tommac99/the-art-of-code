@@ -1,5 +1,4 @@
-import styled, { keyframes } from "styled-components";
-import { mediaQueries } from "../../utils";
+import styled from "styled-components";
 
 export const ProSiderBarContainer = styled.div`
   position: absolute;

@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { mediaQueries } from "../../utils";
 
 export const Root = styled.div`
+  position: relative;
   width: 100%;
   padding: 20px;
 

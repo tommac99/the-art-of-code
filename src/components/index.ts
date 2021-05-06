@@ -9,3 +9,7 @@ export { Icon } from "./Icon";
 export { Grid } from "./Grid";
 export { SideBar } from "./SideBar";
 export { LoadingScreen } from "./LoadingScreen";
+export { GridItem } from "./GridItem";
+export { Button } from "./Buttons";
+export { YouTubePlayer } from "./YouTubePlayer";
+export { Settings } from "./Settings";

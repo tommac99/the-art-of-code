@@ -1,39 +1,56 @@
-import { FC, useEffect } from "react";
-import { Container, LoadingScreen, Text } from "../../components";
+import { FC, useEffect, useState } from "react";
+import { Container, Grid, Text, GridItem, Button } from "../../components";
 import { Content } from "./styles";
-import { useLoadingState } from "../../components/App/hooks";
+import { GetHooks } from "../../services";
+import { Link } from "react-router-dom";
+
+interface IHooks {
+  title: string;
+  icon: string;
+  link: string;
+}
 
 export const HooksPage: FC = () => {
-  const { isLoading, onSetIsLoading } = useLoadingState();
+  const [items, setItems] = useState<IHooks[] | null>(null);
 
   useEffect(() => {
-    onSetIsLoading(true, 2000);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    async function getData() {
+      const data = await GetHooks();
+      setItems(data);
+    }
+
+    getData();
   }, []);
 
   return (
     <Content>
-      {isLoading && <LoadingScreen />}
-      {!isLoading && (
-        <Container>
-          <div className="inner">
-            <div className="title">
-              <Text variant="h2" align="center">
-                Art
-              </Text>
-              <Text variant="h2" align="center">
-                of
-              </Text>
-              <Text variant="h2" align="center">
-                Code
-              </Text>
-            </div>
-            <div className="content">
-              <div className="start">HooksPage</div>
-            </div>
+      <Container>
+        <div className="inner">
+          <div className="title">
+            <Text variant="h2" align="center">
+              Hooks
+            </Text>
           </div>
-        </Container>
-      )}
+          <div className="content">
+            <Grid columnWidth={280}>
+              {items &&
+                items.map(({ title, icon, link }, index) => {
+                  return (
+                    <GridItem key={index} index={index}>
+                      <Text variant="h2" color="contrast" align="center">
+                        {title}
+                      </Text>
+                      <i className={icon} />
+                      <Link to={`/hooks/${link}`}>
+                        <Button>Use</Button>
+                      </Link>
+                    </GridItem>
+                  );
+                })}
+            </Grid>
+          </div>
+        </div>
+      </Container>
     </Content>
   );
 };
