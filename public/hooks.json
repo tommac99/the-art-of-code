@@ -11,12 +11,7 @@
   },
   {
     "title": "Scroll Indicator",
-    "icon": "fas fa-code",
-    "link": "floating-youtube-player"
-  },
-  {
-    "title": "Basic Hooks",
-    "icon": "fas fa-code",
+    "icon": "fas fa-arrows-alt",
     "link": "floating-youtube-player"
   }
 ]

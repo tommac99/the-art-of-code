@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { useSettingsContext } from "../../hooks";
+import { Text } from "..";
 import { Container } from "./styles";
 
 export const Settings: FC = () => {
@@ -11,7 +12,12 @@ export const Settings: FC = () => {
 
   return (
     <Container>
-      <h1>Settings</h1>
+      <Text variant="h2" color="contrast">
+        Settings
+      </Text>
+      <Text variant="body1" color="contrast" mt={20}>
+        Coming soon...
+      </Text>
     </Container>
   );
 };

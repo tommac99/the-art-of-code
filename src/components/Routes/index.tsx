@@ -9,7 +9,9 @@ import {
   BugsPage,
   HooksPage,
   ProjectsPage,
-  ResourcesPage,
+  ComponentsPage,
+  TutorialsPage,
+  BlogsPage,
   FloatingYouTubeHook,
   SettingsHook,
 } from "../../pages";
@@ -34,7 +36,9 @@ export const Routes: FC = () => {
       />
       <Route exact path={`/hooks/settings`} component={SettingsHook} />
 
-      <Route exact path={`/resources`} component={ResourcesPage} />
+      <Route exact path={`/resources/components`} component={ComponentsPage} />
+      <Route exact path={`/resources/tutorials`} component={TutorialsPage} />
+      <Route exact path={`/resources/blogs`} component={BlogsPage} />
       <Route exact path={`/bugs`} component={BugsPage} />
       <Route exact path={`/animations`} component={AnimationsPage} />
     </AnimatedSwitch>

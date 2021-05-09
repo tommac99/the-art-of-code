@@ -22,13 +22,13 @@ export const SideBar: FC = () => {
   const renderMenuItems = () => {
     if (Routes === null) return;
 
-    return Routes.map((icon, index) => {
-      return icon.children.length === 0 ? (
+    return Routes.map(({ title, icon, children }, index) => {
+      return children.length === 0 ? (
         <MenuItem
-          key={icon.title}
-          title={icon.title}
+          key={title}
+          title={title}
           icon={
-            icon.icon === "animation" ? (
+            icon === "animation" ? (
               <div>
                 <Lottie
                   height={60}
@@ -44,23 +44,20 @@ export const SideBar: FC = () => {
                 />
               </div>
             ) : (
-              <i className={icon.icon} style={{ fontSize: 16 }} />
+              <i className={icon} style={{ fontSize: 16 }} />
             )
           }
         >
-          {icon.title}
-          <Link to={`/${icon.title.toLowerCase()}`} />
+          {title}
+          <Link to={`/${title.toLowerCase()}`} />
         </MenuItem>
       ) : (
         <SubMenu
-          key={icon.title}
-          title={icon.title}
-          icon={<i className={icon.icon} style={{ fontSize: 16 }} />}
-          onOpenChange={() => {
-            console.log("opening submenu");
-          }}
+          key={title}
+          title={title}
+          icon={<i className={icon} style={{ fontSize: 16 }} />}
         >
-          {icon.children.map((icon) => {
+          {children.map((icon) => {
             return (
               <MenuItem
                 key={icon.title}
@@ -68,7 +65,11 @@ export const SideBar: FC = () => {
                 icon={<i className={icon.icon} style={{ fontSize: 16 }} />}
               >
                 {icon.title}
-                <Link to={`/${icon.title.toLowerCase()}`} />
+                {title === "Resources" ? (
+                  <Link to={`/resources/${icon.title.toLowerCase()}`} />
+                ) : (
+                  <Link to={`/${icon.title.toLowerCase()}`} />
+                )}
               </MenuItem>
             );
           })}

@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { ThemeColor } from "../../constants";
-import { mediaQueries } from "../../utils";
 
 export const Content = styled.div`
   position: relative;
@@ -22,10 +21,6 @@ export const Content = styled.div`
     border: 5px solid ${ThemeColor.text.primary};
     margin-top: 40px;
     margin-bottom: 40px;
-
-    ${mediaQueries("md")`
-      margin-bottom: 80px;
-    `};
   }
 
   .content {

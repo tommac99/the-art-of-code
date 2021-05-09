@@ -4,8 +4,9 @@ import { ThemeColor } from "../../constants";
 export const Container = styled.div`
   position: absolute;
   z-index: 9;
-  top: 100px;
-  right: 100px;
+  top: 50%;
+  right: 50%;
+  transform: translate(-50%, -50%);
   width: 280px;
   height: 280px;
   background: linear-gradient(
@@ -16,7 +17,7 @@ export const Container = styled.div`
   box-shadow: 0 4px 8px rgba(49, 49, 49, 0.16);
   border-radius: 10px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   flex-direction: column;
   padding: 20px;

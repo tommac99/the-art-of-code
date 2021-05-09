@@ -48,6 +48,9 @@ export const HooksPage: FC = () => {
                   );
                 })}
             </Grid>
+            <Text variant="h2" align="center" mt={20} mb={40}>
+              More coming very soon...
+            </Text>
           </div>
         </div>
       </Container>

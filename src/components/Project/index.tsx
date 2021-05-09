@@ -38,9 +38,11 @@ export const Project: FC<{ item: IProject }> = ({
           text={description}
           length={showFullDescription ? "1000" : "110"}
         />
-        <div onClick={() => setShowFullDescription(!showFullDescription)}>
-          {showFullDescription ? "Read less" : "Read more"}
-        </div>
+        {description.length > 110 && (
+          <div onClick={() => setShowFullDescription(!showFullDescription)}>
+            {showFullDescription ? "Read less" : "Read more"}
+          </div>
+        )}
       </div>
       <div className="btns">
         {!!link ? (

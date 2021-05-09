@@ -2,6 +2,8 @@ import { FC, useEffect } from "react";
 import { Container, LoadingScreen, Text } from "../../components";
 import { Content } from "./styles";
 import { useLoadingState } from "../../components/App/hooks";
+import Lottie from "react-lottie";
+import findingBug from "../../assets/lottie/findingBug.json";
 
 export const BugsPage: FC = () => {
   const { isLoading, onSetIsLoading } = useLoadingState();
@@ -29,7 +31,18 @@ export const BugsPage: FC = () => {
               </Text>
             </div>
             <div className="content">
-              <div className="start">Explore</div>
+              <Lottie
+                height={260}
+                width={260}
+                options={{
+                  autoplay: true,
+                  loop: true,
+                  animationData: findingBug,
+                  rendererSettings: {
+                    preserveAspectRatio: "xMidYMid slice",
+                  },
+                }}
+              />
             </div>
           </div>
         </Container>

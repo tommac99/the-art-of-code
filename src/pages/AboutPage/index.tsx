@@ -73,7 +73,7 @@ export const AboutPage: FC = () => {
               </div>
             </div>
             <div className="text-group">
-              <TextLoop noWrap={false} interval={3500}>
+              <TextLoop noWrap={false} interval={2000}>
                 {words.map((word, index) => {
                   return (
                     <Text

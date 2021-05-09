@@ -60,6 +60,9 @@ export const ContactPage: FC = () => {
               Code
             </Text>
           </div>
+          <Text variant="h4" align="center" mb={20}>
+            Send a message to Thomas
+          </Text>
           <div className="content">
             {!isSent && (
               <>

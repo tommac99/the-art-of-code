@@ -24,7 +24,7 @@ export const Container = styled.div<{ position: string | null }>`
   position: relative;
   z-index: 2;
   width: 320px;
-  min-height: 480px;
+  min-height: 400px;
   background: ${ThemeColor.background.dark};
   border-radius: 20px;
   transform: scale(0.98);

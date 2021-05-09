@@ -8,8 +8,6 @@ import { useSettingsContext } from "../../../../hooks";
 export const SettingsHook: FC = () => {
   const { showSettings, onSetShowSettings } = useSettingsContext();
 
-  console.log("showSettings:", showSettings);
-
   return (
     <Container>
       <Content>
@@ -32,9 +30,11 @@ export const SettingsHook: FC = () => {
             />
           </Button>
         </div>
-        <Button onClick={() => onSetShowSettings(!showSettings)}>
-          Toggle Settings
-        </Button>
+        <div style={{ width: 200, margin: "20px auto 0 auto" }}>
+          <Button onClick={() => onSetShowSettings(!showSettings)}>
+            Toggle Settings
+          </Button>
+        </div>
       </Content>
     </Container>
   );

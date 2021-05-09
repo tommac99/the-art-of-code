@@ -1,11 +1,9 @@
-import React, { FC, useEffect } from "react";
-import { Container, LoadingScreen, Text } from "../../components";
+import { FC, useEffect } from "react";
+import { Container, LoadingScreen, Text } from "../../../components";
 import { Content } from "./styles";
-import { useLoadingState } from "../../components/App/hooks";
-import Lottie from "react-lottie";
-import comingSoon from "../../assets/lottie/comingSoon.json";
+import { useLoadingState } from "../../../components/App/hooks";
 
-export const AnimationsPage: FC = () => {
+export const BlogsPage: FC = () => {
   const { isLoading, onSetIsLoading } = useLoadingState();
 
   useEffect(() => {
@@ -31,18 +29,7 @@ export const AnimationsPage: FC = () => {
               </Text>
             </div>
             <div className="content">
-              <Lottie
-                height={260}
-                width={260}
-                options={{
-                  autoplay: true,
-                  loop: true,
-                  animationData: comingSoon,
-                  rendererSettings: {
-                    preserveAspectRatio: "xMidYMid slice",
-                  },
-                }}
-              />
+              <div className="start">Coming soon...</div>
             </div>
           </div>
         </Container>
